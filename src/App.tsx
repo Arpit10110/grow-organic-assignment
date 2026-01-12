@@ -15,7 +15,7 @@ export default function App() {
   const [loading, setLoading] = useState(false);
   const [totalRecords, setTotalRecords] = useState(0);
   const [currentPage, setCurrentPage] = useState(1);
-  const [showOverlay, setShowOverlay] = useState(false);
+
   const [selectCount, setSelectCount] = useState('');
   
   const overlayRef = useRef<OverlayPanel>(null);
@@ -161,11 +161,11 @@ export default function App() {
             pt={{
                 paginator: {
                     root: { className: 'flex justify-between items-center bg-white border-t border-gray-200 px-4 py-3 sm:px-6' },
-                    currentReport: { className: 'text-sm text-gray-700' },
+                    current: { className: 'text-sm text-gray-700' },
                     pages: { className: 'flex gap-1' },
                     firstPageButton: { className: 'hidden' },
                     lastPageButton: { className: 'hidden' },
-                    previousPageButton: { className: 'relative inline-flex items-center rounded-md border border-gray-300 bg-white px-4 py-2 text-sm font-medium text-gray-700 hover:bg-gray-50' },
+                    prevPageButton: { className: 'relative inline-flex items-center rounded-md border border-gray-300 bg-white px-4 py-2 text-sm font-medium text-gray-700 hover:bg-gray-50' },
                     nextPageButton: { className: 'relative inline-flex items-center rounded-md border border-gray-300 bg-white px-4 py-2 text-sm font-medium text-gray-700 hover:bg-gray-50 ml-2' },
                     pageButton: ({ context }: any) => ({
                         className: `relative inline-flex items-center px-4 py-2 text-sm font-semibold ${context.active ? 'bg-blue-600 text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-600' : 'text-gray-900 ring-1 ring-inset ring-gray-300 hover:bg-gray-50 focus:z-20 focus:outline-offset-0'}`
@@ -173,9 +173,7 @@ export default function App() {
                 },
                 thead: { className: 'bg-gray-50' },
                 headerRow: { className: 'bg-transparent' },
-                headerCell: { className: 'text-xs font-bold text-gray-500 uppercase tracking-wider bg-transparent border-b border-gray-200 py-3' },
-                bodyRow: { className: 'hover:bg-gray-50' },
-                row: { className: 'border-b border-gray-100' }
+                bodyRow: { className: 'hover:bg-gray-50 border-b border-gray-100' }
             }}
             emptyMessage="No artworks found."
             stripedRows={false}
